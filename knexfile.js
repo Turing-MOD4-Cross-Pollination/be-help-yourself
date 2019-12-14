@@ -24,18 +24,14 @@ module.exports = {
     },
     useNullAsDefault: true
   },
-    production: {
-    client: 'pg',
-    connection: 'postgres://GET PRODUCTION SITE URL',
-    migrations: {
-      directory: './db/migrations'
-    },
-    seeds: {
-      directory: './db/seeds'
-    },
-    useNullAsDefault: true
+  production: {
+    dialect: "postgres",
+    host: process.env.RDS_HOSTNAME,
+    username: process.env.RDS_USERNAME,
+    password: process.env.RDS_PASSWORD,
+    port: process.env.RDS_PORT,
+    database: process.env.RDS_DB_NAME,
   },
-
   staging: {
     client: 'pg',
     connection: 'postgres://GET STAGING SITE URL',
