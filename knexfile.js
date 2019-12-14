@@ -19,13 +19,31 @@ module.exports = {
     migrations: {
       directory: './db/migrations'
     },
+    seeds: {
+      directory: './db/seeds'
+    },
     useNullAsDefault: true
   },
-  production: {
+    production: {
     client: 'pg',
-    connection: '',
+    connection: 'postgres://GET PRODUCTION SITE URL',
     migrations: {
       directory: './db/migrations'
+    },
+    seeds: {
+      directory: './db/seeds'
+    },
+    useNullAsDefault: true
+  },
+
+  staging: {
+    client: 'pg',
+    connection: 'postgres://GET STAGING SITE URL',
+    migrations: {
+      directory: './db/migrations'
+    },
+    seeds: {
+      directory: './db/seeds'
     },
     useNullAsDefault: true
   }
