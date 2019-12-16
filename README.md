@@ -72,3 +72,7 @@ knex migrate:latest
 ```
 
 This will install any dependencies, install Knex, and migrate any changes that you’ve made to the database. 
+
+#### Schema
+
+![BackEnd Database Schema](https://user-images.githubusercontent.com/47605558/70940491-ac8cf400-2007-11ea-912d-92f0d6aaeaa1.png)
