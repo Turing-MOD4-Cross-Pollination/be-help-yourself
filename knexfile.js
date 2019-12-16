@@ -4,7 +4,7 @@ module.exports = {
 
   development: {
     client: 'pg',
-    connection: 'postgres://localhost/cross_poll_dev',
+    connection: 'postgres://localhost/community_connect_dev',
     migrations: {
       directory: './db/migrations'
     },
@@ -15,7 +15,7 @@ module.exports = {
   },
   test: {
     client: 'pg',
-    connection: 'postgres://localhost/cross_poll_test',
+    connection: 'postgres://localhost/community_connect_test',
     migrations: {
       directory: './db/migrations'
     },
