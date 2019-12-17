@@ -140,7 +140,7 @@ exports.seed = function(knex) {
         location: '700 Delaware Street',
         contact: '303-602-8550',
         notes:'M-F 8am-5pm Appointment Line: 303-436-4949'
-      } 'id')
+      } , 'id')
 		  .then(() => console.log('Seeding complete!'))
 		  .catch(error => console.log(`Error seeding data: ${error}`))
 		])
