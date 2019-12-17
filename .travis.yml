@@ -15,5 +15,5 @@ script:
 - npm test
 
 before_script:
-  - psql -c 'create database publications_test;' -U postgres
+  - psql -c 'create database community_connect_test;' -U postgres
   - knex migrate:latest --env test
