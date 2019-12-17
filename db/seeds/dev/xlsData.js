@@ -4,31 +4,31 @@ exports.seed = function(knex) {
 		return Promise.all([
   		  knex('resources').insert({
 			    name: 'Wee Cycle',
-          website: 'http://www.weecycle.org/',
+          website: "http://www.weecycle.org",
           location: '789 Sherman Street, Suite 250',
           contact: '720-319-7792',
-          notes: '"Provides new or gently used baby gear for low-income families with infants and toddlers.',
+          notes: 'Provides new or gently used baby gear for low-income families with infants and toddlers.',
 		  }, {
 			    name: 'Clayton Family Futures',
-          website: 'http://www.claytonearlylearning.org/',
+          website: "http://www.claytonearlylearning.org",
           location: '3801 Martin Luther King Blvd.',
           contact: '303-355-4411',
           notes: 'Prenatal intervention & child development services',
 		  }, {
 			    name: 'Assistance League Denver: Operation School Bell',
-          website: 'http://denver.assistanceleague.org/ps.projects.cfm?ID=704',
+          website: "http://denver.assistanceleague.org/ps.projects.cfm?ID=704",
           location: '1400 Josephine Street',
           contact: '303-322-5205',
-          notes: '"Operation School Bell provides new school clothing to Denver Public School students. Referral needed.',
+          notes: 'Operation School Bell provides new school clothing to Denver Public School students. Referral needed.',
 		  }, {
 			    name: 'St. Francis Center',
-          website: 'http://www.sfcdenver.org/',
+          website: "http://www.sfcdenver.org",
           location: '2323 Curtis St',
           contact: '303-297-1576',
           notes: 'Offering a safe and inviting place to stay during the day when other shelters are unavailable.',
 		  }, {
 			    name: 'Adventure Dental & Orthodontics',
-          website: 'http://adventuredenver.com/',
+          website: "http://adventuredenver.com",
           location: '1407 W. 84th Ave. #8',
           contact: '720-214-4746',
           notes: 'M-F: Aug-May 9am-6pm, June-July 8am-5pm, English, Spanish, Population: 0-20',
@@ -61,7 +61,7 @@ exports.seed = function(knex) {
           website: 'http://www.abilityconnectioncolorado.org/employment/',
           location: '801 Yosemite Street',
           contact: '303-691-9339',
-          notes: '',
+          notes: 'N/A',
 		  }, {
 			    name: 'Alternatives Pregnancy Center',
           website: 'http://youhavealternatives.org/?utm_source=URL&utm_medium=Domain+Name&utm_campaign=youhavealternatives.com',
@@ -83,7 +83,7 @@ exports.seed = function(knex) {
 		  }, {
 			    name: 'City & County of Denver Services',
           website: 'http://www.denvergov.org/content/denvergov/en/denver-311-help-center.html',
-          location: '',
+          location: 'N/A',
           contact: '311 (outside Denver, 720-913-11311)',
           notes: 'Non-emergency services and communications between citizens and the City and County of Denver.',
 		  }, {
@@ -101,13 +101,13 @@ exports.seed = function(knex) {
 		  }, {
 			    name: 'CHFA',
           website: 'http://www.chfainfo.com/arh/Documents/LIHTCPropertyList.pdf',
-          location: '',
+          location: 'N/A',
           contact: '1.800.877.2432',
           notes: 'A list of LIHTC Properties',
 		  }, {
 			    name: 'Child Health Plan Plus (CHP+)',
           website: 'https://www.colorado.gov/pacific/hcpf/child-health-plan-plus',
-          location: '',
+          location: 'N/A',
           contact: '800-359-1991',
           notes: 'Medicaid',
 		  }, {
