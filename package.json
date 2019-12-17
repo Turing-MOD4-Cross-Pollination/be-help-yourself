@@ -12,7 +12,8 @@
     "express": "~4.16.1",
     "knex": "^0.19.5",
     "morgan": "~1.9.1",
-    "pg": "^7.8.0"
+    "pg": "^7.8.0",
+    "xlsx-to-json": "^0.3.0"
   },
   "devDependencies": {
     "babel-jest": "^24.9.0",
