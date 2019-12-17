@@ -2,6 +2,20 @@ exports.seed = function(knex) {
 	return knex('resources').del()
 	  .then(() => {
 		return Promise.all([
+<<<<<<< HEAD
+  		  knex('resources').insert({
+			    name: 'Wee Cycle',
+          website: "http://www.weecycle.org",
+          location: '789 Sherman Street, Suite 250',
+          contact: '720-319-7792',
+          notes: 'Provides new or gently used baby gear for low-income families with infants and toddlers.',
+		  }, {
+			    name: 'Clayton Family Futures',
+          website: "http://www.claytonearlylearning.org",
+          location: '3801 Martin Luther King Blvd.',
+          contact: '303-355-4411',
+          notes: 'Prenatal intervention & child development services',
+=======
   		  knex('resources').insert([{
 			    name: "Wee Cycle",
           website: "http://www.weecycle.org/",
@@ -14,6 +28,7 @@ exports.seed = function(knex) {
           location: "3801 Martin Luther King Blvd.",
           contact: "303-355-4411",
           notes: "Prenatal intervention & child development services",
+>>>>>>> 4964bd0d1c174fc7ad2a5224add5608ad042aaa6
 		  }, {
 			    name: 'Assistance League Denver: Operation School Bell',
           website: "http://denver.assistanceleague.org/ps.projects.cfm?ID=704",
