@@ -2,6 +2,7 @@ exports.seed = function(knex) {
 	return knex('resources').del()
 	  .then(() => {
 		return Promise.all([
+<<<<<<< HEAD
   		  knex('resources').insert({
 			    name: 'Wee Cycle',
           website: "http://www.weecycle.org",
@@ -14,6 +15,20 @@ exports.seed = function(knex) {
           location: '3801 Martin Luther King Blvd.',
           contact: '303-355-4411',
           notes: 'Prenatal intervention & child development services',
+=======
+  		  knex('resources').insert([{
+			    name: "Wee Cycle",
+          website: "http://www.weecycle.org/",
+          location: "789 Sherman Street, Suite 250",
+          contact: "720-319-7792",
+          notes: "Provides new or gently used baby gear for low-income families with infants and toddlers.",
+		  }, {
+			    name: "Clayton Family Futures",
+          website: "http://www.claytonearlylearning.org/",
+          location: "3801 Martin Luther King Blvd.",
+          contact: "303-355-4411",
+          notes: "Prenatal intervention & child development services",
+>>>>>>> 4964bd0d1c174fc7ad2a5224add5608ad042aaa6
 		  }, {
 			    name: 'Assistance League Denver: Operation School Bell',
           website: "http://denver.assistanceleague.org/ps.projects.cfm?ID=704",
@@ -91,7 +106,7 @@ exports.seed = function(knex) {
           website: 'http://www.denverhealth.org/medical-services/emergency-services/adult-urgent-care-center',
           location: '777 Banock Street',
           contact: '303-602-2822',
-          notes: 'Minor injuries, Fractures/Sprains, Severe colds, flu and fevers, Coughs and asthma, Sore throats, ear aches and other respiratory problems, Minor cuts and abrasions, Back, joint or muscle pain, Abdominal pain, Skin rashes and other allergic reactions, Gynecologic problems',
+          notes: 'Minor injuries, Fractures/Sprains',
 		  }, {
 			    name: 'Jewish Family Services',
           website: 'http://www.jewishfamilyservice.org/services/weinberg-food-pantry',
@@ -131,7 +146,7 @@ exports.seed = function(knex) {
       }, {
           name: 'Call-N-Ride (RTD)',
           website: 'http://www.rtd-denver.com/callNRide.shtml',
-          location: '1600 Blake Street', 
+          location: '1600 Blake Street',
           contact: '303-628-9000',
           notes: 'Wheelchair accessible transportation'
       }, {
@@ -140,7 +155,7 @@ exports.seed = function(knex) {
         location: '700 Delaware Street',
         contact: '303-602-8550',
         notes:'M-F 8am-5pm Appointment Line: 303-436-4949'
-      } , 'id')
+      }])
 		  .then(() => console.log('Seeding complete!'))
 		  .catch(error => console.log(`Error seeding data: ${error}`))
 		])
