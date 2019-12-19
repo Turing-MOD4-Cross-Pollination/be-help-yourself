@@ -2,6 +2,7 @@ const environment = process.env.NODE_ENV || 'development';
 const configuration = require('./knexfile')[environment];
 const database = require('knex')(configuration);
 spreadsheet = require('xlsx-to-json');
+
 spreadsheet({
   input: "./Resources.xlsx",
   sheet: "Sheet1",
