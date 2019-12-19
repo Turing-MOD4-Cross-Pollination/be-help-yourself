@@ -5,17 +5,20 @@ spreadsheet = require('xlsx-to-json');
 spreadsheet({
   input: "./Resources.xlsx",
   sheet: "Sheet1",
-  output: "./resouces_import.json"
+  output: "./resouces_import.csv"
 }, function (err, result) {
   if (err) {
     console.log(err);
   } else {
     result.forEach(element => {
-      database('resources').del().then(function () {
-      database('resources').insert({
+      database('resources').del().then(async function () {
+      await database('resources').insert({
         name: element['name'],
         website: element['website'],
-        location: element['location'],
+        street: element['street'],
+        city: element['city'],
+        state: element['state'],
+        zip_code: element['zip code'],
         contact: element['contact'],
         notes: element['notes'],
         category: element['category'],
