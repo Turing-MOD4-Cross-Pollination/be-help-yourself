@@ -5,7 +5,10 @@ exports.up = function(knex) {
         table.increments('id').primary();
         table.string('name');
         table.string('website', 1000);
-        table.string('location');
+        table.string('street');
+        table.string('city');
+        table.string('state');
+        table.string('zip_code');
         table.string('contact');
         table.string('notes', 1000);
         table.string('category');
