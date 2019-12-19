@@ -1,12 +1,21 @@
-import express from 'express';
-import path from 'path';
-import graphqlHTTP from 'express-graphql';
+var express = require('express');
+var path = require('path');
 
-import db from './db';
-import schema from './schema.js';
+const environment = process.env.NODE_ENV || 'development';
+const configuration = require('./knexfile')[environment];
+
+var indexRouter = require('./routes/index');
 
 var app = express();
- 
+
+var graphqlHTTP = require('express-graphql');
+
+
+var app = express();
+
+var db = require('./db');
+var schema = require('./schema.js');
+
 app.use(
   '/resources',
   graphqlHTTP({
@@ -14,7 +23,7 @@ app.use(
     graphiql: true
   })
 );
- 
+
 app.listen(4000);
 
-export default app;
+module.exports = app;
