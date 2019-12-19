@@ -12,12 +12,6 @@ const {
     GraphQLBoolean
 } = graphql;
 
-const CategoryType = new GraphQLObjectType({
-    name: 'Category',
-    fields: () => ({
-        id: {type: GraphQLID},
-        name: {type: GraphQLString}
-    })
 })
 
 const ResourceType = new GraphQLObjectType({
