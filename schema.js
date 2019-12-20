@@ -39,6 +39,13 @@ const RootQuery = new GraphQLObjectType({
                 return db('resources').select()
             }
         },
+        resource: {
+            type: ResourceType,
+            args: {id: {type: GraphQLID}},
+            resolve(parents, args) {
+              return db('resources').where('id', args.id).first()
+            }
+          },
         resources_by_category: {
           type: new GraphQLList(ResourceType),
           args: {category: {type: GraphQLString}},
