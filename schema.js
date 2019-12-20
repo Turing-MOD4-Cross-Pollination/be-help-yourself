@@ -70,9 +70,19 @@ const RootQuery = new GraphQLObjectType({
           resolve(parent, args){
             return db('resources').where('favorited', args.favorited).select()
           }
+        },
+        resources_by_notes: {
+          type: new GraphQLList(ResourceType),
+          args: {notes: {type: GraphQLString}
+          },
+          resolve(parent, args) {
+            return db('resources').where('notes', 'like', `%${args.notes}%`)
+          }
         }
     }
 })
+
+// knex raw("select * from 'resources'  where notes contains 'STRING QUERY ARG
 
 module.exports = new GraphQLSchema({
   query: RootQuery
