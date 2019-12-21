@@ -8,9 +8,6 @@ module.exports = {
     migrations: {
       directory: './db/migrations'
     },
-    seeds: {
-      directory: './db/seeds/dev'
-    },
     useNullAsDefault: true
   },
   test: {
@@ -18,9 +15,6 @@ module.exports = {
     connection: 'postgres://localhost/community_connect_test',
     migrations: {
       directory: './db/migrations'
-    },
-    seeds: {
-      directory: './db/seeds'
     },
     useNullAsDefault: true
   },
@@ -37,9 +31,6 @@ module.exports = {
     connection: 'postgres://rliwwgvberzagx:440b196e46606c228a179cc597fca632371526ed795cefffee8c6707082a259c@ec2-184-73-169-163.compute-1.amazonaws.com:5432/dftv5q2jck251l',
     migrations: {
       directory: './db/migrations'
-    },
-    seeds: {
-      directory: './db/seeds'
     },
     useNullAsDefault: true
   }
