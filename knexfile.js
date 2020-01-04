@@ -1,5 +1,4 @@
 // Update with your config settings.
-require('dotenv').config();
 
 module.exports = {
 
@@ -26,7 +25,7 @@ module.exports = {
     useNullAsDefault: true
   },
   production: {
-    client: "postgres",
+    dialect: "postgres",
     host: process.env.RDS_HOSTNAME,
     username: process.env.RDS_USERNAME,
     password: process.env.RDS_PASSWORD,
