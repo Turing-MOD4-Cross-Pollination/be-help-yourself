@@ -26,7 +26,7 @@ module.exports = {
     useNullAsDefault: true
   },
   production: {
-    dialect: "postgres",
+    client: "postgres",
     host: process.env.RDS_HOSTNAME,
     username: process.env.RDS_USERNAME,
     password: process.env.RDS_PASSWORD,
