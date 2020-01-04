@@ -9,7 +9,7 @@ module.exports = {
       directory: './db/migrations'
     },
     seeds: {
-      directory: './db/seeds/dev'
+      directory: './db/seeds/'
     },
     useNullAsDefault: true
   },
@@ -20,7 +20,7 @@ module.exports = {
       directory: './db/migrations'
     },
     seeds: {
-      directory: './db/seeds'
+      directory: './db/seeds/'
     },
     useNullAsDefault: true
   },
@@ -34,12 +34,12 @@ module.exports = {
   },
   staging: {
     client: 'pg',
-    connection: 'postgres://GET STAGING SITE URL',
+    connection: 'postgres://rliwwgvberzagx:440b196e46606c228a179cc597fca632371526ed795cefffee8c6707082a259c@ec2-184-73-169-163.compute-1.amazonaws.com:5432/dftv5q2jck251l',
     migrations: {
       directory: './db/migrations'
     },
     seeds: {
-      directory: './db/seeds'
+      directory: './db/seeds/'
     },
     useNullAsDefault: true
   }

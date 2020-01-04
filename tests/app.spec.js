@@ -1,12 +1,11 @@
-var shell = require('shelljs');
 var request = require("supertest");
 var app = require('../app');
 
-describe('Test the root path', () => {
-  test('It should respond to the GET method', async () => {
+describe('Test the GraphQL path', () => {
+  it('test should fail withouth proper GtaphQL request data', async () => {
     const res = await request(app)
-      .get("/");
+      .get("/resources");
 
-    expect(res.statusCode).toBe(200);
+    expect(res.status).toBe(400);
   });
 });
