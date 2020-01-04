@@ -1,6 +1,6 @@
 var express = require('express');
 var path = require('path');
-require('dotenv').config()
+require('dotenv').config();
 
 const environment = process.env.NODE_ENV || 'development';
 const configuration = require('./knexfile')[environment];
@@ -14,7 +14,7 @@ var graphqlHTTP = require('express-graphql');
 
 var app = express();
 
-var db = require('./db');
+
 var schema = require('./schema.js');
 
 app.use(

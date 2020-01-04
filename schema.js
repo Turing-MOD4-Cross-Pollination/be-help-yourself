@@ -1,5 +1,8 @@
 const graphql = require('graphql')
-var db = require('./db');
+const environment = process.env.NODE_ENV || 'development';
+const configuration = require('./knexfile')[environment]
+const db = require('knex')(configuration)
+
 
 const {
     GraphQLObjectType,
