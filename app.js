@@ -1,5 +1,6 @@
 var express = require('express');
 var path = require('path');
+require('dotenv').config();
 
 const environment = process.env.NODE_ENV || 'development';
 const configuration = require('./knexfile')[environment];
