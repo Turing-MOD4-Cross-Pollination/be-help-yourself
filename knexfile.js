@@ -1,4 +1,5 @@
 // Update with your config settings.
+require('dotenv').config()
 
 require('dotenv').config();
 
@@ -36,7 +37,7 @@ module.exports = {
   },
   staging: {
     client: 'pg',
-    connection: 'postgres://rliwwgvberzagx:440b196e46606c228a179cc597fca632371526ed795cefffee8c6707082a259c@ec2-184-73-169-163.compute-1.amazonaws.com:5432/dftv5q2jck251l',
+    connection: 'postgres://tsvbmuqbarhdoz:1aabdc857196af23bed2af1c688ac8579c24093a5dd0f2ad92c041b92d2a59ec@ec2-174-129-33-88.compute-1.amazonaws.com:5432/d3ulh8q9euvlqg',
     migrations: {
       directory: './db/migrations'
     },
