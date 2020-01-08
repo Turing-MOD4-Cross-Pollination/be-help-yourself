@@ -33,6 +33,16 @@ const ResourceType = new GraphQLObjectType({
     })
 })
 
+const RecoveryType = new GraphQLObjectType({
+  name: 'Recovery',
+  fields: () => ({
+    id: {type: GraphQLID},
+    title: {type: GraphQLString},
+    subtitle: {type: GraphQLString},
+    address: {type: GraphQLString}
+  })
+})
+
 const RootQuery = new GraphQLObjectType({
     name: 'RootQueryType',
     fields: {
@@ -40,6 +50,12 @@ const RootQuery = new GraphQLObjectType({
             type: new GraphQLList(ResourceType),
             resolve(parents, args){
                 return db('resources').select()
+            }
+        },
+        recovery: {
+            type: new GraphQLList(RecoveryType),
+            resolve(parents, args){
+                return db('recovery').select()
             }
         },
         resource: {
