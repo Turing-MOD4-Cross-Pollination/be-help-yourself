@@ -7,14 +7,14 @@ exports.seed = (knex) => {
     .then(() => {
       let allThings = []
       resources.forEach(resource => {
-        allThings.push(createResource(knex, resource))
+        allThings.push(createResource(sequelize, resource))
       })
       return Promise.all(allThings)
   })
 };
 
 
-const createResource = (knex, element) => {
+const createResource = (sequelize, element) => {
   return knex('resources').insert(
     {
     name: element.name,
