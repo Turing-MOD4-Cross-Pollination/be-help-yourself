@@ -2,6 +2,10 @@
 
 # Community Connect Back-End Application
 
+Community Connect is a mobile app that gives Colorado users a central place to access the resources that they need to better their lives. Resources range from immediate help hotlines, nonprofits that offer various services, and a map of alchohol/drug recovery meetings in Colorado.
+
+The back-end part of the application houses the nonprofit resources and recovery meetings information and makes that information available via GraphQL requests. 
+
 #### [Visit Production Application](https://stormy-depths-45174.herokuapp.com/resources)
 
 
@@ -36,7 +40,7 @@ You’ll need to figure out a name for your database. We suggest calling it some
 You will also need to update the development section of the knexfile with the database name.
 
 
-Instructions to create database, run migrations, and seed:
+Instructions to create the database and run migrations:
 ```
 psql
 CREATE DATABASE DATABASE_NAME_dev;
@@ -84,7 +88,9 @@ Production address with a single endpoint:
 
 ``` https://stormy-depths-45174.herokuapp.com/resources```
 
-Local address
+To access locally:
+
+```npm start```
 
 ``` http://localhost:4000/resources ```
 
@@ -157,7 +163,7 @@ If successful, response will contain all resources in JSON format.
 ### Get All Resources By Category
 Returns all resources from the database that have a specified category. The attributes id, name, website, street, city, state, zip code, contact, notes, category, subcategory, and favorited can also be requested for each resource. 
 
-If successful, response will contain all resources in JSON format.
+If successful, response will contain all relevant resources in JSON format.
 
 **Sample Request Query:**
 
@@ -195,7 +201,7 @@ If successful, response will contain all resources in JSON format.
 ### Get All Resources By ID
 Returns the resource from the database that have a specified id. The attributes id, name, website, street, city, state, zip code, contact, notes, category, subcategory, and favorited can also be requested for the resource. 
 
-If successful, response will contain all resources in JSON format.
+If successful, response will contain all relevant resources in JSON format.
 
 **Sample Request Query:**
 
@@ -231,7 +237,7 @@ If successful, response will contain all resources in JSON format.
 ### Get All Resources By City
 Returns all resources from the database that have a specified city. The attributes id, name, website, street, city, state, zip code, contact, notes, category, subcategory, and favorited can also be requested for each resource. 
 
-If successful, response will contain all resources in JSON format.
+If successful, response will contain all relevant resources in JSON format.
 
 **Sample Request Query:**
 
@@ -269,7 +275,7 @@ If successful, response will contain all resources in JSON format.
 ### Get All Resources By Zip Code
 Returns all resources from the database that have a specified zip code. The attributes id, name, website, street, city, state, zip code, contact, notes, category, subcategory, and favorited can also be requested for each resource. 
 
-If successful, response will contain all resources in JSON format.
+If successful, response will contain all relevant resources in JSON format.
 
 **Sample Request Query:**
 
@@ -307,7 +313,7 @@ If successful, response will contain all resources in JSON format.
 ### Get All Resources By Notes
 Returns all resources from the database that have notes that contain something specified by the user. The attributes id, name, website, street, city, state, zip code, contact, notes, category, subcategory, and favorited can also be requested for each resource. 
 
-If successful, response will contain all resources in JSON format.
+If successful, response will contain all relevant resources in JSON format.
 
 **Sample Request Query:**
 
@@ -349,7 +355,7 @@ If successful, response will contain all resources in JSON format.
 ### Get All Resources By Subcategory
 Returns all resources from the database that have a specified subcategory. The attributes id, name, website, street, city, state, zip code, contact, notes, category, subcategory, and favorited can also be requested for each resource. 
 
-If successful, response will contain all resources in JSON format.
+If successful, response will contain all relevant resources in JSON format.
 
 **Sample Request Query:**
 
@@ -394,7 +400,7 @@ If successful, response will contain all resources in JSON format.
 ### Get All Resources By Favorited
 Returns all resources from the database that have a specified favorited status. The attributes id, name, website, street, city, state, zip code, contact, notes, category, subcategory, and favorited can also be requested for each resource. 
 
-If successful, response will contain all resources in JSON format.
+If successful, response will contain all relevant resources in JSON format.
 
 **Sample Request Query:**
 
