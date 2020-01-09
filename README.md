@@ -2,6 +2,8 @@
 
 # Community Connect Back-End Application
 
+[![Build Status](https://travis-ci.com/Turing-MOD4-Cross-Pollination/be-help-yourself.svg?branch=master)](https://travis-ci.com/Turing-MOD4-Cross-Pollination/be-help-yourself)
+
 Community Connect is a mobile app that gives Colorado users a central place to access the resources that they need to better their lives. Resources range from immediate help hotlines, nonprofits that offer various services, and a map of alchohol/drug recovery meetings in Colorado.
 
 The back-end part of the application houses the nonprofit resources and recovery meetings information and makes that information available via GraphQL requests. 
