@@ -13,7 +13,7 @@ The back-end part of the application houses the nonprofit resources and recovery
  *  [Introduction](https://github.com/Turing-MOD4-Cross-Pollination/be-help-yourself#introduction)
  *  [Initial Setup](https://github.com/Turing-MOD4-Cross-Pollination/be-help-yourself#intial-setup)
  *  [How to Run Tests](https://github.com/Turing-MOD4-Cross-Pollination/be-help-yourself#how-to-run-tests)
- *  [Endpoint/Queries](https://github.com/Turing-MOD4-Cross-Pollination/be-help-yourself#endpoint/queries)
+ *  [Endpoint](https://github.com/Turing-MOD4-Cross-Pollination/be-help-yourself#endpoint)
  *  [Schema Design](https://github.com/Turing-MOD4-Cross-Pollination/be-help-yourself#schema-design)
  *  [Tech Stack List](https://github.com/Turing-MOD4-Cross-Pollination/be-help-yourself#tech-stack-list)
  *  [Core Contributors](https://github.com/Turing-MOD4-Cross-Pollination/be-help-yourself#core-contributors)
@@ -80,7 +80,7 @@ You will also need to update the test section of the knexfile with the test data
 `npm test`
 
 
- ## Endpoint/Queries
+ ## Endpoint
 
  ### Root
 
