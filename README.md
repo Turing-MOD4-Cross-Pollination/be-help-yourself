@@ -9,7 +9,6 @@
  *  [Introduction](https://github.com/Turing-MOD4-Cross-Pollination/be-help-yourself#introduction)
  *  [Initial Setup](https://github.com/Turing-MOD4-Cross-Pollination/be-help-yourself#intial-setup)
  *  [How to Run Tests](https://github.com/Turing-MOD4-Cross-Pollination/be-help-yourself#how-to-run-tests)
- *  [How to Use](https://github.com/Turing-MOD4-Cross-Pollination/be-help-yourself#how-to-use)
  *  [Endpoints](https://github.com/Turing-MOD4-Cross-Pollination/be-help-yourself#endpoints)
  *  [Schema Design](https://github.com/Turing-MOD4-Cross-Pollination/be-help-yourself#schema-design)
  *  [Tech Stack List](https://github.com/Turing-MOD4-Cross-Pollination/be-help-yourself#tech-stack-list)
@@ -53,24 +52,8 @@ You will need to import resources and recovery meeting information into the data
 node import.js
 node import_recovery.js
 
-knex migrate:latest
 ```
 
-
-#### Adding Environment Keys
-Enviroment keys are required to use the Google Geocoding and DarkSky Service.
-
-Obtain a [Google Geocoding API key](https://developers.google.com/maps/documentation/geocoding/get-api-key)
-
-Create an `.env` file in the root of the dictory
-
-In the `.env` file, add the following information:
-
-```
-MUSIX_MATCH_API_KEY= your_musix_match_api_key
-```
-
-Add the `.env` to your .gitignore to avoid the file being pushed to GitHub
 
 #### Set up your test database
 Most of the setup is going to be same as the one you did before. You’ll notice one small difference with setting the environment flag to `test`.  
@@ -92,316 +75,417 @@ You will also need to update the test section of the knexfile with the test data
 
 `npm test`
 
- ## How to Use
 
- We recommend using [Postman](https://www.getpostman.com/) to hit endpoints.
-
- ## Endpoints
+ ## Endpoint/Queries
 
  ### Root
 
-Production address
+Production address with a single endpoint:
 
-``` https://play-play-express.herokuapp.com/```
+``` https://stormy-depths-45174.herokuapp.com/resources```
 
 Local address
 
-``` http://localhost:3000/ ```
+``` http://localhost:4000/resources ```
 
-### Get All Favorite Tracks
-Returns all favorite tracks from the database 
+### Get All Resources
+Returns all resources from the database. The attributes id, name, website, street, city, state, zip code, contact, notes, category, subcategory, and favorited can also be requested for each resource. 
 
-``` GET /api/v1/favorites ```
+If successful, response will contain all resources in JSON format.
 
-If successful, application will respond with status code 200 and JSON with array of tracks.
-
-[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/6606e9d1f575ad52eb26)
-
-**Sample Successful Response:**
+**Sample Request Query:**
 
 ```
-[
-    {
-        "id": 1,
-        "title": "Bailamos",
-        "artistName": "Enrique Iglesias",
-        "genre": "Pop",
-        "rating": 88
-    },
-    {
-        "id": 2,
-        "title": "The Chain",
-        "artistName": "Fleetwood Mac",
-        "genre": "Rock",
-        "rating": 52
-    }
-]
+{
+  resources{
+    name
+    id
+    website
+    street
+    city
+    state
+    zip_code
+    contact
+    notes
+    category
+    subcategory
+    favorited
+  }
+}
 ```
 
-
-
-### Get a Single Favorite Track
-Returns a single favorite track from the database
-
-``` GET /api/v1/favorites/:id ```
-
-`:id`: id of desired favorite track
-
-If successful, application will respond with status code 200 and JSON of requested track.
-
-[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/a375cfdc39665aae1257)
-
-**Sample Successful Response:**
-
-```
-[
-    {
-        "id": 2,
-        "title": "The Chain",
-        "artistName": "Fleetwood Mac",
-        "genre": "Rock",
-        "rating": 52
-    }
-]
-```
-
-
-
-### Delete a Single Favorite Track
-Delete a single favorite track from the database
-
-``` DELETE /api/v1/favorites/:id ```
-
-`:id`: id of the track to be deleted
-
-If successful, application will respond with 201 status.
-
-[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/fa9117dc5f4dbabf8704)
-
-
-
-### Add a New Single Favorite Track
-Add a new favorite track. The track title must be included in the POST request body. Including the track's artist is optional.
-
-``` POST /api/v1/favorites ```
-
-`title`: title of the desired track
-`artist`: (optional) artist of the desired track
-
-If successful, application will respond with 201 status and return JSON of newly posted favorite track.
-
-[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/56f6770564916f782fbb)
-
-**Sample Successful Response:**
-
-```
-[
-    {
-        "id": 19,
-        "title": "Stronger",
-        "artistName": "Kelly Clarkson",
-        "genre": "Electronic",
-        "rating": 30
-    }
-]
-```
-
-
-
-### Get All Playlists
-Returns all playlists from the database 
-
-``` GET /api/v1/playlists ```
-
-If successful, application will respond with status code 200 and JSON with array of playlists.
-
-[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/d23a9e30301997151b00)
-
-**Sample Successful Response:**
-
-```
-[
-    {
-        "id": 1,
-        "title": "90s Guilty Pleasure",
-        "songCount": 1,
-        "songAvgRating": 88,
-        "favorites": [
-            {
-                "id": 1,
-                "title": "Bailamos",
-                "artistName": "Enrique Iglesias",
-                "genre": "Pop",
-                "rating": 88
-            }
-        ],
-        "updated_at": "2019-12-11T19:40:01.088Z",
-        "created_at": "2019-12-11T19:40:01.088Z"
-    },
-    {
-        "id": 2,
-        "title": "Party Mix",
-        "songCount": 0,
-        "songAvgRating": 0,
-        "favorites": [],
-        "updated_at": "2019-12-11T19:40:01.088Z",
-        "created_at": "2019-12-11T19:40:01.088Z"
-    }
-]
-```
-
-
-
-### Add a New Single Playlist
-Add a new playlist. A unique playlist title must be included in the POST request body.
-
-``` POST /api/v1/playlists ```
-
-`title`: title of playlist
-
-If successful, application will respond with 201 status and return JSON of newly posted playlist record.
-
-[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/af52ddc10e94fc7e9619)
-
-**Sample Successful Response:**
-
-```
-[
-    {
-        "id": 17,
-        "title": "Electronic Dance Music Playlist",
-        "created_at": "2019-12-12T21:42:11.346Z",
-        "updated_at": "2019-12-12T21:42:11.346Z"
-    }
-]
-```
-
-
-
-### Update a Single Playlist
-Update a playlist. To update a playlist title, a unique playlist title must be included in the POST request body.
-
-``` PUT /api/v1/playlists/:id ```
-
-`title`: title of playlist
-
-If successful, application will respond with 201 status and return JSON of newly updated playlist record.
-
-[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/c0adccab586a6598cc16)
-
-**Sample Successful Response:**
-
-```
-[
-    {
-        "id": 2,
-        "title": "Classical Playlist",
-        "created_at": "2019-12-11T19:40:01.088Z",
-        "updated_at": "2019-12-11T19:40:01.088Z"
-    }
-]
-```
-
-### Delete a Single Playlist
-Delete a single playlist from the database
-
-``` DELETE /api/v1/playlists/:id ```
-
-`:id`: id of the track to be deleted
-
-If successful, application will respond with 201 status.
-
-
-[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/dcb1f688a71d1e621483)
-
-
-### Get a Single Playlist with Favorites
-Returns a playlist with it associated favorite tracks from the database 
-
-``` GET /api/v1/playlists/:id/favorites ```
-
-`:id`: id of desired favorite track
-
-If successful, application will respond with status code 200 and JSON of requested playlists with associated favorite tracks.
-
-[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/8152c6e9e4633084ed49)
 
 **Sample Successful Response:**
 
 ```
 {
-    "id": 1,
-    "title": "90s Guilty Pleasure",
-    "songCount": 1,
-    "songAvgRating": 88,
-    "favorites": [
-        {
-            "id": 1,
-            "title": "Bailamos",
-            "artistName": "Enrique Iglesias",
-            "genre": "Pop",
-            "rating": 88
-        }
-    ],
-    "updated_at": "2019-12-11T19:40:01.088Z",
-    "created_at": "2019-12-11T19:40:01.088Z"
-}
+  "data": {
+    "resources": [
+      {
+        "name": "Wee Cycle",
+        "id": "1",
+        "website": "http://www.weecycle.org/",
+        "street": "789 Sherman Street #250",
+        "city": "Denver",
+        "state": "CO",
+        "zip_code": "80203",
+        "contact": "720-319-7792",
+        "notes": "Provides new or gently used baby gear for low-income families with infants and toddlers.",
+        "category": "Baby Items",
+        "subcategory": "",
+        "favorited": null
+      },
+      {
+        "name": "Clayton Family Futures",
+        "id": "2",
+        "website": "http://www.claytonearlylearning.org/",
+        "street": "3801 Martin Luther King Blvd.",
+        "city": "Denver",
+        "state": "CO",
+        "zip_code": "80205",
+        "contact": "(303) 355-4411",
+        "notes": "Prenatal intervention & child development services",
+        "category": "Child Care",
+        "subcategory": "Preschools",
+        "favorited": null
+      }
+     ]
+    }
+   }
 ```
 
+### Get All Resources By Category
+Returns all resources from the database that have a specified category. The attributes id, name, website, street, city, state, zip code, contact, notes, category, subcategory, and favorited can also be requested for each resource. 
 
-### Add a Single Favorite to a Playlist
-Add a favorite track to a playlist. A playlist id and favorite id must be included in the POST request URI.
+If successful, response will contain all resources in JSON format.
 
-``` POST /api/v1/playlists/:playlist_id/favorites/:favorite_id ```
+**Sample Request Query:**
 
-`playlist_id`: id of playlist
-`favorite_id`: id of favorite
+```
+    {
+      resources_by_category(category: "Baby Items") {
+        name
+        website
+        street
+        city
+        state
+      }
+    }
+```
 
-If successful, application will respond with 201 status and return message indicating that the favorite track has been added to the playlist.
-
-[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/914f0c5409a75578543a)
 
 **Sample Successful Response:**
 
 ```
 {
-    "Success": "Bailamos has been added to 90s Guilty Pleasure!"
+  "data": {
+    "resources_by_category": [
+      {
+        "name": "Wee Cycle",
+        "website": "http://www.weecycle.org/",
+        "street": "789 Sherman Street #250",
+        "city": "Denver",
+        "state": "CO"
+      }
+    ]
+  }
+}
+```
+
+### Get All Resources By ID
+Returns the resource from the database that have a specified id. The attributes id, name, website, street, city, state, zip code, contact, notes, category, subcategory, and favorited can also be requested for the resource. 
+
+If successful, response will contain all resources in JSON format.
+
+**Sample Request Query:**
+
+```
+   {
+      resource(id: 30) {
+        name
+        website
+        street
+        city
+        state
+      }
+    }
+```
+
+
+**Sample Successful Response:**
+
+```
+{
+  "data": {
+    "resource": {
+      "name": "Volunteers of America Mission",
+      "website": "http://www.voacolorado.org/gethelp-denvermetro-\n foodnutrition-themission",
+      "street": "2877 Lawrence Street Denver",
+      "city": "Denver",
+      "state": "CO"
+    }
+  }
+}
+```
+
+### Get All Resources By City
+Returns all resources from the database that have a specified city. The attributes id, name, website, street, city, state, zip code, contact, notes, category, subcategory, and favorited can also be requested for each resource. 
+
+If successful, response will contain all resources in JSON format.
+
+**Sample Request Query:**
+
+```
+    {
+      resources_by_city(city: "Commerce City") {
+        name
+        website
+        street
+        city
+        state
+      }
+    }
+```
+
+
+**Sample Successful Response:**
+
+```
+{
+  "data": {
+    "resources_by_city": [
+      {
+        "name": "Dr. Lawrence Willis (Commerce City Dental Center)",
+        "website": "n/a",
+        "street": "6537 E. 72nd Place",
+        "city": "Commerce City",
+        "state": "CO"
+      }
+    ]
+  }
+}
+```
+
+### Get All Resources By Zip Code
+Returns all resources from the database that have a specified zip code. The attributes id, name, website, street, city, state, zip code, contact, notes, category, subcategory, and favorited can also be requested for each resource. 
+
+If successful, response will contain all resources in JSON format.
+
+**Sample Request Query:**
+
+```
+    {
+      resources_by_zip_code(zip_code: "80226") {
+        name
+        website
+        street
+        city
+        state
+      }
+    }
+```
+
+
+**Sample Successful Response:**
+
+```
+{
+  "data": {
+    "resources_by_zip_code": [
+      {
+        "name": "Rocky Mountain SER - Head Start Program",
+        "website": "http://www.rmser.org/rmser-programs/headstart-program",
+        "street": "150 Sheridan Blvd",
+        "city": "Denver",
+        "state": "CO"
+      }
+    ]
+  }
+}
+```
+
+### Get All Resources By Notes
+Returns all resources from the database that have notes that contain something specified by the user. The attributes id, name, website, street, city, state, zip code, contact, notes, category, subcategory, and favorited can also be requested for each resource. 
+
+If successful, response will contain all resources in JSON format.
+
+**Sample Request Query:**
+
+```
+    {
+      resources_by_notes(notes: "boxes") {
+        name
+        website
+        street
+        notes
+      }
+    }
+```
+
+
+**Sample Successful Response:**
+
+```
+{
+  "data": {
+    "resources_by_notes": [
+      {
+        "name": "Denver Rescue Mission: Ministry Outreach Center",
+        "website": "https://www.denverrescuemission.org/emergency-services",
+        "street": "5725 East 39th Avenue",
+        "notes": "Food boxes available once a month: Tues.-Sat. 8:30-11am & 11:30am-4 pm"
+      },
+      {
+        "name": "Denver Rescue Mission: Harvest Farms",
+        "website": "https://www.denverrescuemission.org/emergency-services",
+        "street": "4240 E. County Road 66",
+        "notes": "Food boxes available once a month: Mon.-Fri. 9:45 am-11:45 am & 1pm-3:45 pm, Saturday 8am - 12pm"
+      }
+    ]
+  }
+}
+```
+
+### Get All Resources By Subcategory
+Returns all resources from the database that have a specified subcategory. The attributes id, name, website, street, city, state, zip code, contact, notes, category, subcategory, and favorited can also be requested for each resource. 
+
+If successful, response will contain all resources in JSON format.
+
+**Sample Request Query:**
+
+```
+    {
+      resources_by_subcategory(subcategory: "After School Programs") {
+        name
+        website
+        street
+        city
+        state
+      }
+    }
+```
+
+
+**Sample Successful Response:**
+
+```
+{
+  "data": {
+    "resources_by_subcategory": [
+      {
+        "name": "YMCA Child Care Center",
+        "website": "http://www.denverymca.org/child-care-camps",
+        "street": "2625 S Colorado Blvd",
+        "city": "Denver",
+        "state": "CO"
+      },
+      {
+        "name": "Sun Valley Youth Center",
+        "website": "http://www.sunvalleyyouthcenter.org/programs",
+        "street": "1230 Decatur St",
+        "city": "Denver",
+        "state": "CO"
+      }
+    ]
+  }
+}
+```
+
+### Get All Resources By Favorited
+Returns all resources from the database that have a specified favorited status. The attributes id, name, website, street, city, state, zip code, contact, notes, category, subcategory, and favorited can also be requested for each resource. 
+
+If successful, response will contain all resources in JSON format.
+
+**Sample Request Query:**
+
+```
+    {
+      resources_by_favorited(favorited: null) {
+        name
+        favorited
+      }
+    }
+```
+
+
+**Sample Successful Response:**
+
+```
+{
+  "data": {
+    "resources_by_favorited": [
+      {
+        "name": "Wee Cycle",
+        "favorited": null
+      }
+    ]
+  }
 }
 ```
 
 
-### Delete a Single Favorite from a Playlist
-Delete a favorite track from a playlist. A playlist id and favorite id must be included in the DELETE request URI.
+### Get All Recovery Groups
+Returns all recovery groups from the database. The attributes title, subtitle, and address can also be requested for each recovery group. 
 
-``` DELETE /api/v1/playlists/:playlist_id/favroites/:favorite_id ```
+``` GET /api/v1/resources ```
 
-`playlist_id`: id of playlist
-`favorite_id`: id of favorite
+If successful, response will contain all recovery groups in JSON format.
 
-If successful, application will respond with 201 status.
+**Sample Request Query:**
+
+```
+{
+  recovery{
+    title
+    subtitle
+    address
+  }
+}
+```
 
 
-[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/7ef14c64d26b7f927dad)
+**Sample Successful Response:**
+
+```
+{
+  "data": {
+    "recovery": [
+      {
+        "title": "AA: P.P. Workshop Mon - Sat 6:45 AM",
+        "subtitle": "Too Young To Die Mon & Wed 8 PM",
+        "address": "8545 E Dry Creek Rd"
+      },
+      {
+        "title": "AA: Grateful 2b here",
+        "subtitle": "Thursday7:30 pm",
+        "address": "8700 E 21st Ave"
+      }
+     ]
+    }
+   }
+```
+
 
 
  ## Schema Design
  
- ![image](https://user-images.githubusercontent.com/49769068/70656381-3b200080-1c17-11ea-8b36-f2b61aea751f.png)
+ ![image](https://user-images.githubusercontent.com/49769068/72028374-8261d700-323f-11ea-83d0-813dbb00fd7b.png)
  
 
  ## Tech Stack List
    *  [Node.js](https://nodejs.org/en/)
    *  [Knex](http://knexjs.org/)
    *  [PostgreSQL](https://www.postgresql.org/)
-   *  [Node-Fetch](https://www.npmjs.com/package/node-fetch)
+   *  [GraphQL](https://graphql.org/)
+   *  [Heroku](https://heroku.com/)
 
   ## Core Contributors
+  
+  ### [Corina Allen](https://github.com/StarPerfect)
+   [View LinkedIn](https://www.linkedin.com/in/corina-allen/)
   
   ### [Joshua Sherwood](https://github.com/joshsherwood1)
    [View LinkedIn](https://www.linkedin.com/in/sherwoodjosh/)
   
-
-  ### [Mack Halliday](https://github.com/MackHalliday)
-   [View LinkedIn](https://www.linkedin.com/in/mackhalliday/)
   
  
