@@ -13,7 +13,7 @@ The back-end part of the application houses the nonprofit resources and recovery
  *  [Introduction](https://github.com/Turing-MOD4-Cross-Pollination/be-help-yourself#introduction)
  *  [Initial Setup](https://github.com/Turing-MOD4-Cross-Pollination/be-help-yourself#intial-setup)
  *  [How to Run Tests](https://github.com/Turing-MOD4-Cross-Pollination/be-help-yourself#how-to-run-tests)
- *  [Endpoints](https://github.com/Turing-MOD4-Cross-Pollination/be-help-yourself#endpoints)
+ *  [Endpoint/Queries](https://github.com/Turing-MOD4-Cross-Pollination/be-help-yourself#endpoint/queries)
  *  [Schema Design](https://github.com/Turing-MOD4-Cross-Pollination/be-help-yourself#schema-design)
  *  [Tech Stack List](https://github.com/Turing-MOD4-Cross-Pollination/be-help-yourself#tech-stack-list)
  *  [Core Contributors](https://github.com/Turing-MOD4-Cross-Pollination/be-help-yourself#core-contributors)
