@@ -10,7 +10,7 @@ The back-end part of the application houses the nonprofit resources and recovery
 
 #### [Visit Production Application](https://stormy-depths-45174.herokuapp.com/resources)
 
-### [Link to Front-End Application Repository](https://github.com/Turing-MOD4-Cross-Pollination/front-end-help-yourself)
+#### [Link to Front-End Application Repository](https://github.com/Turing-MOD4-Cross-Pollination/front-end-help-yourself)
 
 
 ## Table of Contents
